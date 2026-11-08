@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Source Games — каталог свободных игр</title>
+  <meta name="description" content="Каталог open-source игр и открытых ремейков: поиск по названию, фильтр по жанру, ссылки на сайт и исходники.">
+  <link rel="preconnect" href="https://github.com">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">каталог свободных игр</p>
+      <h1>Open Source&nbsp;Games</h1>
+      <p class="hero__lead">
+        Игры с открытым исходным кодом и открытые ремейки классики: от Doom-портов
+        до градостроительных симуляторов. Список собран сообществом
+        <a href="https://github.com/bobeff/open-source-games" target="_blank" rel="noopener noreferrer">bobeff/open-source-games</a>
+        (CC0), здесь он превращён в каталог с поиском.
+      </p>
+      <dl class="stats">
+        <div><dt id="stat-games">—</dt><dd>игр и движков</dd></div>
+        <div><dt id="stat-cats">—</dt><dd>жанров</dd></div>
+        <div><dt id="stat-src">—</dt><dd>с открытым кодом</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="toolbar" id="toolbar">
+    <div class="toolbar__inner">
+      <div class="search">
+        <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.5 3a7.5 7.5 0 1 0 4.65 13.39l4.23 4.23 1.41-1.41-4.23-4.23A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z"/>
+        </svg>
+        <input id="search" type="search" placeholder="Поиск: doom, zelda, стратегия…" autocomplete="off" spellcheck="false" aria-label="Поиск по каталогу">
+        <kbd class="search__kbd">/</kbd>
+      </div>
+      <div class="toolbar__actions">
+        <label class="toggle">
+          <input id="only-source" type="checkbox">
+          <span>только с исходниками</span>
+        </label>
+        <button class="btn btn--ghost" id="random" type="button" title="Показать случайную игру">🎲 Случайная</button>
+      </div>
+    </div>
+    <nav class="chips" id="chips" aria-label="Фильтр по жанрам"></nav>
+  </div>
+
+  <main class="page">
+    <div class="page__meta">
+      <p id="result-count" class="result-count" role="status" aria-live="polite"></p>
+      <button class="btn btn--link" id="reset" type="button" hidden>сбросить фильтры</button>
+    </div>
+    <section id="grid" class="grid" aria-label="Игры"></section>
+    <section class="resources" id="resources" hidden aria-labelledby="resources-title">
+      <h2 id="resources-title">Другие списки игр</h2>
+      <p class="resources__lead">Смежные каталоги и подборки, на которые опирается исходный список.</p>
+      <div class="resources__links" id="resources-links"></div>
+    </section>
+
+    <p id="empty" class="empty" hidden>
+      Ничего не нашлось. Попробуйте другое слово или <button class="btn btn--link" data-action="reset">сбросить фильтры</button>.
+    </p>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Данные: <a href="https://github.com/bobeff/open-source-games" target="_blank" rel="noopener noreferrer">bobeff/open-source-games</a>
+      · лицензия списка CC0-1.0 · обновлено 25.02.2026
+    </p>
+    <p class="footer__muted">Ссылки ведут на официальные сайты и репозитории проектов. Права принадлежат их авторам.</p>
+  </footer>
+
+  <dialog id="detail" class="detail">
+    <button class="detail__close" id="detail-close" type="button" aria-label="Закрыть">×</button>
+    <div id="detail-body"></div>
+  </dialog>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
