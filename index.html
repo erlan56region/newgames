@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Червяк Джим — фан-хаб · справочник + игра</title>
+<style>
+  :root{--slime:#8dff5a;--blue:#4cc9f0;--red:#ff5e3a;--yellow:#ffd23f;--ink:#eaf2ff;--mut:#9fb2d4;--line:#26365a}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;font-family:'Trebuchet MS','Segoe UI',system-ui,sans-serif;color:var(--ink);
+    background:radial-gradient(1000px 600px at 80% -10%,rgba(76,201,240,.16),transparent 60%),
+               radial-gradient(900px 500px at 0% 10%,rgba(141,255,90,.12),transparent 55%),#070a12;
+    display:flex;flex-direction:column;align-items:center;padding:40px 20px}
+  .logo{text-align:center;margin:10px 0 6px;line-height:.9}
+  .logo .l1{font-size:clamp(20px,4vw,34px);font-weight:900;letter-spacing:3px;transform:skewX(-6deg);
+    background:linear-gradient(180deg,#7fd0ff,#2f7fd6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .logo .l2{font-size:clamp(40px,10vw,84px);font-weight:900;transform:skewX(-6deg);
+    background:linear-gradient(180deg,#ffd23f,#ff5e3a 70%,#c62828);-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 4px 0 rgba(0,0,0,.35))}
+  .sub{color:var(--mut);text-align:center;max-width:60ch;margin:0 0 30px;font-size:15px}
+  .cards{display:grid;grid-template-columns:repeat(2,minmax(280px,420px));gap:22px;width:100%;max-width:900px}
+  .card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;overflow:hidden;
+    background:linear-gradient(180deg,#101a30,#0b1120);border:1px solid var(--line);border-radius:20px;
+    box-shadow:0 24px 60px -24px #000;transition:.18s}
+  .card:hover{transform:translateY(-5px);border-color:var(--slime)}
+  .card .art{aspect-ratio:16/9;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+  .card .art img{width:100%;height:100%;object-fit:cover}
+  .card .art.game{background:linear-gradient(135deg,#12203a,#1a2f1a);display:grid;place-items:center}
+  .card .art.game .play{font-size:64px;filter:drop-shadow(0 6px 16px rgba(141,255,90,.5))}
+  .badge{position:absolute;top:12px;left:12px;font-size:12px;font-weight:800;padding:5px 11px;border-radius:999px;
+    background:rgba(8,12,22,.7);border:1px solid var(--line)}
+  .badge.new{background:var(--slime);color:#04121a;border-color:transparent}
+  .card .body{padding:20px}
+  .card .body h2{margin:0 0 6px;font-size:22px}
+  .card .body p{margin:0;color:var(--mut);font-size:14px}
+  .card .go{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--slime)}
+  .card.play-card .go{color:var(--slime)}
+  footer{margin-top:36px;color:#6f83a8;font-size:12px;text-align:center;max-width:70ch;line-height:1.7}
+  @media(max-width:720px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="logo"><div class="l1">EARTHWORM</div><div class="l2">JIM</div></div>
+  <p class="sub">Фан-хаб по «Червяку Джиму»: иллюстрированный справочник по первой игре и играбельный браузерный прототип в духе Earthworm Jim 2.</p>
+  <div class="cards">
+    <a class="card play-card" href="earthworm-jim-2/">
+      <div class="art game"><span class="badge new">🎮 НОВОЕ · ИГРА</span><span class="play">▶</span></div>
+      <div class="body">
+        <h2>Играть — Earthworm Jim 2</h2>
+        <p>Прототип на Canvas: рисованные Джим, помощники и злодеи, плазма, голова-хлыст, вертолёт, крюки и Снотт. 5 уровней и 5 боссов. Клавиатура и тач.</p>
+        <span class="go">▶ Запустить игру →</span>
+      </div>
+    </a>
+    <a class="card" href="earthworm-jim/">
+      <div class="art"><span class="badge">📖 СПРАВОЧНИК</span><img src="earthworm-jim/assets/cover.jpg" alt="Earthworm Jim"></div>
+      <div class="body">
+        <h2>Галерея — Earthworm Jim (1994)</h2>
+        <p>Скриншоты всех миссий, персонажи, враги и боссы, оружие, помощники и транспорт — со счётчиками.</p>
+        <span class="go">Открыть справочник →</span>
+      </div>
+    </a>
+  </div>
+  <footer>
+    Earthworm Jim © Shiny Entertainment / Interplay / Playmates. Фанатский некоммерческий проект. Арты и скриншоты принадлежат правообладателям; игра — оригинальный код и графика, вдохновлённые механиками серии.
+  </footer>
+</body>
+</html>
