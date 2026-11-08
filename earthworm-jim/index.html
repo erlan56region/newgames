@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Червяк Джим (Earthworm Jim, 1994) — все миссии, персонажи, враги, оружие, помощники и транспорт</title>
+<meta name="description" content="Полный иллюстрированный справочник по игре Earthworm Jim (1994): скриншоты всех миссий, сколько персонажей, врагов и боссов, оружие, помощники и транспорт.">
+<style>
+  :root{
+    --bg:#080b14; --bg2:#0e1424; --card:#121a2e; --card2:#16203a;
+    --line:#243352; --ink:#eaf2ff; --mut:#9fb2d4; --mut2:#6f83a8;
+    --slime:#8dff5a; --slime-d:#57c22a; --plasma:#ff5e3a; --red:#ff4d6d;
+    --blue:#4cc9f0; --yellow:#ffd23f; --purple:#b388ff;
+    --radius:18px; --shadow:0 18px 40px -18px rgba(0,0,0,.8);
+    --font:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:var(--font);color:var(--ink);line-height:1.6;
+    background:
+      radial-gradient(1200px 600px at 85% -5%, rgba(76,201,240,.14), transparent 60%),
+      radial-gradient(1000px 500px at 0% 10%, rgba(141,255,90,.10), transparent 55%),
+      radial-gradient(900px 700px at 50% 120%, rgba(179,136,255,.12), transparent 60%),
+      var(--bg);
+    background-attachment:fixed;
+  }
+  a{color:var(--blue);text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .pixel{image-rendering:pixelated;image-rendering:crisp-edges}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(8,11,20,.82);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;gap:18px;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;white-space:nowrap}
+  .brand .logo{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--slime),var(--blue));color:#04121a;font-size:18px;box-shadow:0 0 18px rgba(141,255,90,.5)}
+  .brand b{color:var(--slime)}
+  nav.links{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+  nav.links::-webkit-scrollbar{display:none}
+  nav.links a{color:var(--mut);font-weight:600;font-size:14px;padding:8px 12px;border-radius:10px;white-space:nowrap;transition:.15s}
+  nav.links a:hover{color:var(--ink);background:var(--card)}
+  nav.links a.active{color:#04121a;background:var(--slime)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:54px 0 46px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--slime);background:rgba(141,255,90,.08);
+    border:1px solid rgba(141,255,90,.3);padding:6px 12px;border-radius:999px}
+  h1.title{font-size:clamp(34px,6vw,62px);line-height:1.02;margin:18px 0 6px;font-weight:900;letter-spacing:-1px}
+  h1.title span{background:linear-gradient(120deg,var(--slime),var(--blue) 60%,var(--purple));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .subtitle{font-size:clamp(16px,2.4vw,20px);color:var(--mut);max-width:56ch}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .tag{font-size:12.5px;font-weight:600;color:var(--mut);background:var(--card);border:1px solid var(--line);padding:6px 11px;border-radius:999px}
+  .tag b{color:var(--ink)}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:15px;padding:13px 20px;border-radius:12px;cursor:pointer;border:1px solid transparent;transition:.15s}
+  .btn.primary{background:linear-gradient(135deg,var(--slime),var(--slime-d));color:#04121a;box-shadow:0 10px 26px -10px rgba(141,255,90,.7)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{background:var(--card);border-color:var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--slime);color:var(--slime)}
+  .hero-art{position:relative}
+  .hero-art img{width:100%;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  .hero-art::after{content:"Earthworm Jim HD — обложка";position:absolute;bottom:10px;right:12px;
+    font-size:11px;color:#dfeaff;background:rgba(0,0,0,.5);padding:3px 8px;border-radius:8px}
+  .hero-glow{position:absolute;inset:-40% -10% auto auto;width:520px;height:520px;
+    background:radial-gradient(circle,rgba(141,255,90,.25),transparent 65%);filter:blur(20px);z-index:-1}
+
+  /* ---------- SECTION ---------- */
+  section{padding:52px 0;border-bottom:1px solid rgba(36,51,82,.5)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(24px,3.6vw,34px);margin:0;font-weight:900;letter-spacing:-.5px;display:flex;align-items:center;gap:12px}
+  .sec-head h2 .ic{font-size:.9em}
+  .sec-head p{margin:6px 0 0;color:var(--mut);max-width:70ch}
+  .kicker{font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue)}
+
+  /* ---------- STAT GRID ---------- */
+  .stats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+  .stat{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px 16px;text-align:center;position:relative;overflow:hidden}
+  .stat .ic{font-size:26px}
+  .stat .num{font-size:38px;font-weight:900;line-height:1;margin:8px 0 4px;
+    background:linear-gradient(120deg,var(--slime),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{font-size:13px;color:var(--mut);font-weight:600}
+  .stat small{display:block;color:var(--mut2);font-size:11px;margin-top:4px}
+
+  /* ---------- FILTER ---------- */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .chip{font-size:13px;font-weight:700;color:var(--mut);background:var(--card);border:1px solid var(--line);
+    padding:8px 14px;border-radius:999px;cursor:pointer;transition:.15s}
+  .chip:hover{color:var(--ink)}
+  .chip.active{background:var(--blue);color:#04121a;border-color:var(--blue)}
+
+  /* ---------- MISSION CARDS ---------- */
+  .grid{display:grid;gap:20px}
+  .grid.missions{grid-template-columns:repeat(3,1fr)}
+  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.18s}
+  .card:hover{transform:translateY(-4px);border-color:#33507f}
+  .shot{position:relative;aspect-ratio:16/10;background:#05070d;cursor:zoom-in;overflow:hidden;border-bottom:1px solid var(--line)}
+  .shot img{width:100%;height:100%;object-fit:cover;transition:.3s}
+  .shot:hover img{transform:scale(1.05)}
+  .shot .num{position:absolute;top:10px;left:10px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+    font-weight:900;font-size:16px;color:#04121a;background:var(--slime);box-shadow:0 4px 12px rgba(0,0,0,.5)}
+  .shot .zoom-hint{position:absolute;bottom:8px;right:8px;font-size:11px;color:#dfeaff;background:rgba(0,0,0,.55);padding:3px 8px;border-radius:8px;opacity:0;transition:.2s}
+  .shot:hover .zoom-hint{opacity:1}
+  .ver{position:absolute;top:10px;right:10px;font-size:10.5px;font-weight:800;letter-spacing:.4px;padding:4px 8px;border-radius:8px;text-transform:uppercase}
+  .ver.core{background:rgba(141,255,90,.16);color:var(--slime);border:1px solid rgba(141,255,90,.4)}
+  .ver.gen{background:rgba(76,201,240,.16);color:var(--blue);border:1px solid rgba(76,201,240,.4)}
+  .ver.se{background:rgba(255,210,63,.16);color:var(--yellow);border:1px solid rgba(255,210,63,.4)}
+  .ver.bonus{background:rgba(179,136,255,.16);color:var(--purple);border:1px solid rgba(179,136,255,.4)}
+  .card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card-body h3{margin:0;font-size:18px;font-weight:800}
+  .card-body .ru{font-size:13px;color:var(--slime);font-weight:700;margin-top:-4px}
+  .card-body p{margin:0;font-size:13.5px;color:var(--mut)}
+  .boss{margin-top:auto;font-size:12.5px;color:var(--ink);background:rgba(255,94,58,.1);border:1px solid rgba(255,94,58,.28);
+    padding:8px 10px;border-radius:10px}
+  .boss b{color:var(--plasma)}
+
+  /* ---------- ROSTER (characters/enemies/weapons/etc) ---------- */
+  .grid.roster{grid-template-columns:repeat(4,1fr)}
+  .person{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:.18s}
+  .person:hover{transform:translateY(-4px);border-color:#33507f}
+  .person .pic{aspect-ratio:1/1;background:radial-gradient(circle at 50% 35%,#1b2742,#0a0f1c);display:grid;place-items:center;cursor:zoom-in;overflow:hidden;border-bottom:1px solid var(--line)}
+  .person .pic img{width:100%;height:100%;object-fit:contain;padding:8px}
+  .person .pic.cover img{object-fit:cover;padding:0}
+  .person .info{padding:14px}
+  .person .info h3{margin:0 0 2px;font-size:16px;font-weight:800}
+  .person .info .en{font-size:12px;color:var(--mut2);margin-bottom:8px}
+  .person .info p{margin:0;font-size:13px;color:var(--mut)}
+  .role{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:7px;margin-bottom:8px}
+  .role.hero{background:rgba(141,255,90,.15);color:var(--slime)}
+  .role.ally{background:rgba(76,201,240,.15);color:var(--blue)}
+  .role.boss{background:rgba(255,77,109,.15);color:var(--red)}
+  .role.enemy{background:rgba(255,210,63,.15);color:var(--yellow)}
+
+  /* icon cards (weapons/transport/helpers) */
+  .grid.tools{grid-template-columns:repeat(3,1fr)}
+  .tool{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px;display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow)}
+  .tool .emoji{font-size:34px;line-height:1;flex-shrink:0;width:56px;height:56px;border-radius:14px;display:grid;place-items:center;
+    background:rgba(76,201,240,.1);border:1px solid var(--line)}
+  .tool h3{margin:0 0 3px;font-size:16.5px;font-weight:800}
+  .tool .en{font-size:12px;color:var(--mut2);margin-bottom:7px}
+  .tool p{margin:0;font-size:13.5px;color:var(--mut)}
+
+  /* enemy list pills */
+  .pillbox{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .pill{font-size:13px;color:var(--mut);background:var(--card);border:1px solid var(--line);padding:7px 12px;border-radius:999px}
+  .pill b{color:var(--ink)}
+
+  .note{background:rgba(76,201,240,.07);border:1px solid rgba(76,201,240,.25);border-left:4px solid var(--blue);
+    padding:14px 16px;border-radius:12px;color:var(--mut);font-size:13.5px;margin-top:22px}
+  .note b{color:var(--ink)}
+  .note.warn{background:rgba(255,210,63,.07);border-color:rgba(255,210,63,.3);border-left-color:var(--yellow)}
+
+  /* ---------- TABLE ---------- */
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;min-width:560px;background:var(--card)}
+  th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+  th{background:var(--card2);font-weight:800;color:var(--ink);font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+  td:first-child{font-weight:700}
+  td .big{font-size:20px;font-weight:900;color:var(--slime)}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(76,201,240,.04)}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:40px 0 60px;color:var(--mut2);font-size:13px}
+  footer h4{color:var(--mut);margin:0 0 10px;font-size:14px}
+  footer .src{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  footer .src a{font-size:12px;background:var(--card);border:1px solid var(--line);padding:5px 10px;border-radius:8px;color:var(--mut)}
+  footer .src a:hover{color:var(--blue);border-color:var(--blue)}
+  .disclaimer{border-top:1px solid var(--line);padding-top:18px;line-height:1.7}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(4,6,12,.92);backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb figure{margin:0;max-width:1000px;width:100%}
+  .lb img{width:100%;max-height:78vh;object-fit:contain;border-radius:12px;border:1px solid var(--line);background:#05070d}
+  .lb img.pixel{image-rendering:pixelated}
+  .lb figcaption{color:var(--ink);text-align:center;margin-top:14px;font-weight:700;font-size:15px}
+  .lb .close{position:absolute;top:20px;right:26px;font-size:34px;color:#fff;cursor:pointer;line-height:1;opacity:.8}
+  .lb .close:hover{opacity:1}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:26px}
+    .hero-art{order:-1;max-width:440px}
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .grid.missions{grid-template-columns:repeat(2,1fr)}
+    .grid.roster{grid-template-columns:repeat(3,1fr)}
+    .grid.tools{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:620px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .grid.missions,.grid.roster,.grid.tools{grid-template-columns:1fr}
+    .nav-in{gap:10px}
+    .brand span.txt{display:none}
+    section{padding:40px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand"><span class="logo">🪱</span><span class="txt">ЧЕРВЯК&nbsp;<b>ДЖИМ</b></span></div>
+    <nav class="links">
+      <a href="#stats">Сколько всего</a>
+      <a href="#missions">Миссии</a>
+      <a href="#characters">Персонажи</a>
+      <a href="#enemies">Враги и боссы</a>
+      <a href="#weapons">Оружие</a>
+      <a href="#helpers">Помощники</a>
+      <a href="#transport">Транспорт</a>
+      <a href="#summary">Итоги</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">🎮 Ретро-справочник · 1994</span>
+      <h1 class="title">Червяк Джим<br><span>Earthworm Jim</span></h1>
+      <p class="subtitle">Полный иллюстрированный разбор первой игры: скриншоты <b>всех миссий</b>, сколько персонажей, врагов и боссов, какое оружие, помощники и транспорт. <i>Groovy!</i></p>
+      <div class="meta-row">
+        <span class="tag">🏢 <b>Shiny Entertainment</b></span>
+        <span class="tag">📅 <b>1994</b></span>
+        <span class="tag">🕹️ Sega Genesis / SNES / Sega CD / PC и др.</span>
+        <span class="tag">🎯 Run-and-gun платформер</span>
+      </div>
+      <div class="cta">
+        <a href="#missions" class="btn primary">▶ Смотреть все миссии</a>
+        <a href="#summary" class="btn ghost">📊 Итоговая таблица</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-glow"></div>
+      <img src="assets/cover.jpg" alt="Earthworm Jim — обложка / key art">
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Коротко о главном</div>
+        <h2><span class="ic">📊</span> Сколько всего в игре?</h2>
+        <p>Быстрые цифры по первой части Earthworm Jim. Точные значения зависят от версии (Genesis, SNES, Special Edition, HD) — подробности ниже.</p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="ic">🗺️</div><div class="num">7–9</div><div class="lbl">миссий</div><small>+ гонка Andy Asteroids</small></div>
+      <div class="stat"><div class="ic">🪱</div><div class="num">1</div><div class="lbl">герой</div><small>играбельный Джим</small></div>
+      <div class="stat"><div class="ic">👹</div><div class="num">~10</div><div class="lbl">боссов</div><small>11 с Big Bruty</small></div>
+      <div class="stat"><div class="ic">🔫</div><div class="num">1+3</div><div class="lbl">оружие</div><small>бластер + приёмы</small></div>
+      <div class="stat"><div class="ic">🤝</div><div class="num">2</div><div class="lbl">помощника</div><small>+ принцесса</small></div>
+      <div class="stat"><div class="ic">🚀</div><div class="num">3–4</div><div class="lbl">транспорт</div><small>ракета, суб, хомяк</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSIONS -->
+<section id="missions">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Скриншоты всех уровней</div>
+        <h2><span class="ic">🗺️</span> Миссии и уровни</h2>
+        <p>Канонический порядок прохождения. Нажми на любой скриншот, чтобы увеличить. Уровни отличаются по версиям — смотри цветные бейджи.</p>
+      </div>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="chip active" data-f="all">Все</button>
+      <button class="chip" data-f="core">Основные (все версии)</button>
+      <button class="chip" data-f="gen">Genesis / HD</button>
+      <button class="chip" data-f="se">Special Edition / HD</button>
+      <button class="chip" data-f="bonus">Бонус</button>
+    </div>
+
+    <div class="grid missions" id="missionGrid">
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">1</span><span class="ver core">Основной</span>
+          <img class="pixel zoom" src="assets/level-01-new-junk-city.png" data-cap="1. New Junk City — новый хлам-сити" alt="New Junk City">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>New Junk City</h3><div class="ru">Новый Хлам-Сити</div>
+          <p>Свалочный город и стартовый уровень. Джим учится бегать, стрелять, цепляться головой-хлыстом за крюки и запускать корову в космос.</p>
+          <div class="boss">👹 Мини-босс: <b>Билли-Бак</b> (Billy the Bin) · Босс: <b>Чак</b> (Chuck) и пёс Фифи</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">2</span><span class="ver core">Основной</span>
+          <img class="pixel zoom" src="assets/level-02-what-the-heck.png" data-cap="2. What the Heck? — адская планета Хек" alt="What the Heck?">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>What the Heck?</h3><div class="ru">Какого чёрта?</div>
+          <p>Адская планета Хек: огонь, шипы, юристы, теневые демоны, телепорты и музыка из лифта. Заметно сложнее первого уровня.</p>
+          <div class="boss">👹 Мини-босс: <b>Снеговик Расти</b> (Rusty) · Босс: <b>Кот Зло</b> (Evil the Cat)</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">3</span><span class="ver core">Основной</span>
+          <img class="pixel zoom" src="assets/level-03-down-the-tubes.png" data-cap="3. Down the Tubes — подводная база" alt="Down the Tubes">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Down the Tubes</h3><div class="ru">Вниз по трубам</div>
+          <p>Подводная база на планете La Planeta de Agua. Хомяки-помощники и хрупкая стеклянная субмарина с таймером воздуха. Часть 2 — гонка <b>Tube Race</b>.</p>
+          <div class="boss">👹 Босс: <b>Боб — Золотая Рыбка-Убийца</b> (Bob) и прихвостень №4</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">4</span><span class="ver core">Основной</span>
+          <img class="pixel zoom" src="assets/level-04-snot-a-problem.png" data-cap="4. Snot a Problem — сопля-не проблема" alt="Snot a Problem">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Snot a Problem</h3><div class="ru">Сопля — не проблема</div>
+          <p>Скользкий «сопливый» уровень: Джим раскачивается на соплях-канатах и уворачивается от преследующего монстра в вертикальном тоннеле.</p>
+          <div class="boss">👹 Босс: <b>Майор Слизь</b> (Major Mucus)</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">5</span><span class="ver core">Основной</span>
+          <img class="pixel zoom" src="assets/level-05-level-five.png" data-cap="5. Level 5 — лаборатория Профессора Обезьяны" alt="Level 5">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Level 5</h3><div class="ru">Уровень 5</div>
+          <p>Лаборатория Профессора Обезьяны-с-Головой: катушки, лестницы, порталы. Скрытая тёмная часть — <b>«Who Turned Out the Lights?»</b> (Кто выключил свет?).</p>
+          <div class="boss">👹 Босс: <b>Робо-Цыплёнок</b> (Robo-Chicken / Mecha Chicken)</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">6</span><span class="ver core">Основной</span>
+          <img class="pixel zoom" src="assets/level-06-for-petes-sake.png" data-cap="6. For Pete's Sake — сопровождение Питера Паппи" alt="For Pete's Sake">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>For Pete's Sake</h3><div class="ru">Ради Пита</div>
+          <p>Миссия-сопровождение: проведи щенка <b>Питера Паппи</b> живым к финишу, подталкивая его хлыстом через пропасти. Обидишь Питера — он станет монстром и побьёт Джима.</p>
+          <div class="boss">🤝 Цель: защитить <b>Питера Паппи</b> (Peter Puppy)</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="gen">
+        <div class="shot"><span class="num">7</span><span class="ver gen">Genesis · HD</span>
+          <img class="pixel zoom" src="assets/level-07-intestinal-distress.png" data-cap="7. Intestinal Distress — внутри гигантского пришельца" alt="Intestinal Distress">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Intestinal Distress</h3><div class="ru">Кишечное расстройство</div>
+          <p>Внутренности гигантского пришельца. Есть в версиях Genesis, Special Edition и HD, но <b>отсутствует на SNES</b> (не хватило места на картридже).</p>
+          <div class="boss">👹 Босс: <b>Док Двенадцатиперстной</b> (Doc Duodenum)</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="core">
+        <div class="shot"><span class="num">8</span><span class="ver core">Финал</span>
+          <img class="pixel zoom" src="assets/level-08-buttville.png" data-cap="8. Buttville — финал на планете Инсектика" alt="Buttville">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Buttville</h3><div class="ru">Баттвилль · финал</div>
+          <p>Финал на планете Инсектика: спуск сквозь шипы («используй голову»-вертолёт) и логово Королевы. Самая мрачная и сложная локация игры.</p>
+          <div class="boss">👑 Финальный босс: <b>Королева Слизень-с-Задом</b> (Queen Slug-for-a-Butt)</div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="bonus">
+        <div class="shot"><span class="num">★</span><span class="ver bonus">Бонус</span>
+          <img class="pixel zoom" src="assets/bonus-andy-asteroids.png" data-cap="★ Andy Asteroids? — гонка на Pocket Rocket против Psy-Crow" alt="Andy Asteroids">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Andy Asteroids?</h3><div class="ru">Энди Астероиды? · между мирами</div>
+          <p>Космическая гонка на <b>Карманной Ракете</b> против Псай-Ворона. Собирай сферы и ускорения, обгоняй ворона. Проиграл — придётся драться с ним вручную.</p>
+          <div class="boss">🚀 Транспорт: <b>Pocket Rocket</b> · Соперник: <b>Psy-Crow</b></div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="se">
+        <div class="shot"><span class="num">＋</span><span class="ver se">Special Ed. · HD</span>
+          <img class="zoom" src="assets/extra-big-bruty.png" data-cap="＋ Big Bruty — концепт-арт монстра (Special Edition)" alt="Big Bruty concept art">
+          <span class="zoom-hint">🔍 увеличить</span></div>
+        <div class="card-body">
+          <h3>Big Bruty</h3><div class="ru">Большой Брути · доп. уровень</div>
+          <p>Эксклюзив Special Edition и HD (после What the Heck?). Гигантский монстр-динозавр гонится за Джимом. Назван в честь художника Ника Брути. <i>На изображении — концепт-арт.</i></p>
+          <div class="boss">👹 Босс-погоня: <b>Big Bruty</b></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="note"><b>Почему цифры «плавают»:</b> 7 уровней есть во всех версиях. <b>Intestinal Distress</b> добавлен в Genesis/HD, <b>Big Bruty</b> — в Special Edition/HD. Вместе с под-уровнями (Tube Race, Who Turned Out the Lights?) и гонками Andy Asteroids маркетинг насчитывал «до 12 уровней».</div>
+  </div>
+</section>
+
+<!-- CHARACTERS -->
+<section id="characters">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Главные герои</div>
+        <h2><span class="ic">🪱</span> Персонажи</h2>
+        <p>Играбельный герой один — сам Джим. Остальные — союзники, цель спасения и, конечно, злодеи (о них ниже).</p>
+      </div>
+    </div>
+    <div class="grid roster">
+      <div class="person">
+        <div class="pic cover"><img class="zoom" src="assets/char-jim.png" data-cap="Червяк Джим — Earthworm Jim" alt="Earthworm Jim"></div>
+        <div class="info"><span class="role hero">Герой · играбельный</span>
+          <h3>Червяк Джим</h3><div class="en">Earthworm Jim</div>
+          <p>Обычный дождевой червяк, нашедший супер-костюм. Костюм даёт силу, бластер и ракету, а сам червяк служит хлыстом, лассо и вертолётом. Девиз: «Eat dirt!»</p></div>
+      </div>
+      <div class="person">
+        <div class="pic cover"><img class="pixel zoom" src="assets/level-06-for-petes-sake.png" data-cap="Питер Паппи — Peter Puppy" alt="Peter Puppy"></div>
+        <div class="info"><span class="role ally">Союзник</span>
+          <h3>Питер Паппи</h3><div class="en">Peter Puppy</div>
+          <p>Верный щенок-компаньон. При испуге или боли превращается в огромного монстра. Герой отдельной миссии «For Pete's Sake».</p></div>
+      </div>
+      <div class="person">
+        <div class="pic"><div style="font-size:64px">👸</div></div>
+        <div class="info"><span class="role ally">Цель спасения</span>
+          <h3>Принцесса Как-её-зовут</h3><div class="en">Princess What's-Her-Name</div>
+          <p>Возлюбленная Джима и пародия на «принцесс в беде». В финале её придавливает корова, запущенная Джимом в начале игры.</p></div>
+      </div>
+      <div class="person">
+        <div class="pic"><div style="font-size:64px">🐹</div></div>
+        <div class="info"><span class="role ally">Помощник</span>
+          <h3>Гигантский хомяк</h3><div class="en">Giant Hamster</div>
+          <p>Помогает на подводном уровне Down the Tubes — Джим перемещается с помощью хомяка в шаре. Нарисован разработчиком «в три часа ночи».</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENEMIES -->
+<section id="enemies">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Злодеи · ~10 боссов + десятки рядовых врагов</div>
+        <h2><span class="ic">👹</span> Враги и боссы</h2>
+        <p>Главные злодеи охотятся за супер-костюмом Джима. У каждого уровня свой босс, а между ними — рядовые противники.</p>
+      </div>
+    </div>
+    <div class="grid roster">
+      <div class="person">
+        <div class="pic"><img class="zoom" src="assets/enemy-psy-crow.png" data-cap="Псай-Ворон — Psy-Crow" alt="Psy-Crow"></div>
+        <div class="info"><span class="role boss">Главный злодей</span>
+          <h3>Псай-Ворон</h3><div class="en">Psy-Crow</div>
+          <p>Космический охотник за головами, потерявший костюм. Преследует Джима в гонках Andy Asteroids и в бою.</p></div>
+      </div>
+      <div class="person">
+        <div class="pic"><img class="zoom" src="assets/enemy-evil-the-cat.png" data-cap="Кот Зло — Evil the Cat" alt="Evil the Cat"></div>
+        <div class="info"><span class="role boss">Босс · What the Heck?</span>
+          <h3>Кот Зло</h3><div class="en">Evil the Cat</div>
+          <p>Повелитель адской планеты Хек. Белый кот с жёлтыми глазами и дьявольским нравом.</p></div>
+      </div>
+      <div class="person">
+        <div class="pic cover"><img class="pixel zoom" src="assets/enemy-bob.png" data-cap="Боб — Золотая Рыбка-Убийца (Down the Tubes)" alt="Bob the Killer Goldfish"></div>
+        <div class="info"><span class="role boss">Босс · Down the Tubes</span>
+          <h3>Боб — Рыбка-Убийца</h3><div class="en">Bob the Killer Goldfish</div>
+          <p>Крошечная, но невероятно амбициозная золотая рыбка в аквариуме. Мечтает захватить мир с помощью костюма.</p></div>
+      </div>
+      <div class="person">
+        <div class="pic cover"><img class="pixel zoom" src="assets/level-04-snot-a-problem.png" data-cap="Майор Слизь — Major Mucus (Snot a Problem)" alt="Major Mucus"></div>
+        <div class="info"><span class="role boss">Босс · Snot a Problem</span>
+          <h3>Майор Слизь</h3><div class="en">Major Mucus</div>
+          <p>Зелёный слизняк, преследующий Джима в соплях-канатах. Один из самых надоедливых противников.</p></div>
+      </div>
+    </div>
+
+    <div class="note warn"><b>Полный список боссов (~10–11):</b> Билли-Бак (Billy the Bin), Чак (Chuck) + пёс Фифи, Снеговик Расти (Rusty the Snowman), Кот Зло (Evil the Cat), Боб (Bob) + №4, Майор Слизь (Major Mucus), Профессор Обезьяна-с-Головой + Робо-Цыплёнок, Док Двенадцатиперстной (Doc Duodenum), Псай-Ворон (Psy-Crow) и Королева Слизень-с-Задом (Queen Slug-for-a-Butt). В Special Edition добавляется <b>Big Bruty</b>.</div>
+
+    <h3 style="margin:28px 0 6px;font-size:18px">👾 Рядовые враги</h3>
+    <div class="pillbox">
+      <span class="pill">🐦 <b>Вороны</b> (Crows)</span>
+      <span class="pill">⚖️ <b>Юристы / банкиры</b> (Lawyers)</span>
+      <span class="pill">👤 <b>Теневые демоны</b> (Shadow Demons)</span>
+      <span class="pill">🐱 <b>Котята-охранники</b> (Kitten Guard / Henchrat)</span>
+      <span class="pill">🐄 <b>Коровы</b> (запускаются в космос)</span>
+      <span class="pill">🐟 Рыбы и медузы</span>
+      <span class="pill">🐝 <b>Пчёлы</b> и ульи (Buttville)</span>
+      <span class="pill">🐛 <b>Личинки</b> (J. Alfred Maggot)</span>
+      <span class="pill">🪱 Многоножки и слизни</span>
+      <span class="pill">🧠 <b>Mucus Phlegm Brain</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- WEAPONS -->
+<section id="weapons">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Арсенал</div>
+        <h2><span class="ic">🔫</span> Оружие и приёмы</h2>
+        <p>В первой игре арсенал компактный: один бластер с усилением плюс приёмы червячьего тела. Богатый набор пушек появился уже во второй части.</p>
+      </div>
+    </div>
+    <div class="grid tools">
+      <div class="tool"><div class="emoji">🔫</div><div><h3>Плазменный бластер</h3><div class="en">Plasma Blaster</div><p>Основное оружие Джима. Стреляет сгустками плазмы; запас до 100 зарядов медленно восстанавливается сам.</p></div></div>
+      <div class="tool"><div class="emoji">💥</div><div><h3>Мега-плазма</h3><div class="en">Mega Plasma</div><p>Усиленный пробивающий выстрел. Подбирается как power-up и прошивает почти всё на своём пути.</p></div></div>
+      <div class="tool"><div class="emoji">🪢</div><div><h3>Голова-хлыст</h3><div class="en">Head Whip</div><p>Джим бьёт собственной головой-червяком в ближнем бою и цепляется за крюки, чтобы раскачиваться.</p></div></div>
+      <div class="tool"><div class="emoji">🚁</div><div><h3>Вертолёт</h3><div class="en">Helicopter</div><p>Вращая головой как винтом, Джим замедляет падение и планирует через пропасти и шипы.</p></div></div>
+      <div class="tool"><div class="emoji">🛡️</div><div><h3>Щит-манта</h3><div class="en">Manta Shield</div><p>Руки костюма образуют защитный щит в форме ската, прикрывая Джима от атак.</p></div></div>
+      <div class="tool"><div class="emoji">❤️</div><div><h3>Бонусы и жизни</h3><div class="en">Power-ups</div><p>Доп. жизни (лицо Джима), восстановление здоровья, патроны; 100 собранных червячков дают континью.</p></div></div>
+    </div>
+    <div class="note"><b>Важно:</b> экзотические пушки — пузырьковая пушка, самонаводящиеся ракеты, трёхпалая пушка, Egg Chucker, тесак, банановые бомбы и т.д. — это арсенал <b>Earthworm Jim 2</b> и мультсериала, а не первой игры.</div>
+  </div>
+</section>
+
+<!-- HELPERS -->
+<section id="helpers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Союзники</div>
+        <h2><span class="ic">🤝</span> Помощники</h2>
+        <p>Кто помогает Джиму в первой части (и кого нужно спасать).</p>
+      </div>
+    </div>
+    <div class="grid tools">
+      <div class="tool"><div class="emoji">🐶</div><div><h3>Питер Паппи</h3><div class="en">Peter Puppy</div><p>Щенок-компаньон и герой миссии-сопровождения. Превращается в монстра, если его напугать или ударить.</p></div></div>
+      <div class="tool"><div class="emoji">🐹</div><div><h3>Гигантский хомяк</h3><div class="en">Giant Hamster</div><p>Помогает преодолевать подводные трубы Down the Tubes — Джим едет на хомяке в шаре.</p></div></div>
+      <div class="tool"><div class="emoji">👸</div><div><h3>Принцесса Как-её-зовут</h3><div class="en">Princess What's-Her-Name</div><p>Не помощник, а цель: Джим спасает её из лап злодеев. Финал с коровой — чёрная комедия.</p></div></div>
+    </div>
+    <div class="note"><b>А как же Снотт?</b> Зелёный сопляк-компаньон <b>Snott</b>, живущий в рюкзаке костюма, появляется только со <b>Earthworm Jim 2</b>. В первой игре его нет — «сопли» здесь лишь механика уровня Snot a Problem.</div>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section id="transport">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">На чём передвигается Джим</div>
+        <h2><span class="ic">🚀</span> Транспорт</h2>
+        <p>Три-четыре фирменных средства передвижения разбавляют обычный платформинг.</p>
+      </div>
+    </div>
+    <div class="grid tools">
+      <div class="tool"><div class="emoji">🚀</div><div><h3>Карманная Ракета</h3><div class="en">Pocket Rocket</div><p>Личный космический корабль Джима, хранящийся «в кармане» костюма. Гонки Andy Asteroids между планетами.</p></div></div>
+      <div class="tool"><div class="emoji">🛥️</div><div><h3>Стеклянная субмарина</h3><div class="en">Glass Sub</div><p>Хрупкая подлодка на уровне Down the Tubes / Tube Race. Следи за воздухом (таймер) и не разбей стекло.</p></div></div>
+      <div class="tool"><div class="emoji">🐹</div><div><h3>Хомяк-шар</h3><div class="en">Hamster Ball</div><p>Гигантский хомяк везёт Джима по подводным трубам — заодно и помощник, и транспорт.</p></div></div>
+      <div class="tool"><div class="emoji">🛒</div><div><h3>Вагонетки и трубы</h3><div class="en">Carts &amp; Tubes</div><p>Вагонетки, трубы и подъёмники на индустриальных участках (Level 5, Down the Tubes).</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY TABLE -->
+<section id="summary">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Всё в одной таблице</div>
+        <h2><span class="ic">📋</span> Итоги: сколько чего</h2>
+        <p>Сводные цифры по первой игре Earthworm Jim (1994) с учётом различий между версиями.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Категория</th><th>Количество</th><th>Что именно</th></tr></thead>
+        <tbody>
+          <tr><td>🗺️ Миссии / уровни</td><td><span class="big">7–9</span></td><td>7 основных во всех версиях + Intestinal Distress (Genesis/HD) + Big Bruty (Special Edition/HD). Плюс бонус-гонка Andy Asteroids и под-уровни (Tube Race, Who Turned Out the Lights?). Маркетинг: «до 12 уровней».</td></tr>
+          <tr><td>🪱 Играбельных персонажей</td><td><span class="big">1</span></td><td>Червяк Джим (Earthworm Jim).</td></tr>
+          <tr><td>🤝 Помощники / союзники</td><td><span class="big">2</span></td><td>Питер Паппи и гигантский хомяк. Плюс Принцесса Как-её-зовут — цель спасения.</td></tr>
+          <tr><td>👹 Боссы</td><td><span class="big">~10</span></td><td>Билли-Бак, Чак, Расти, Кот Зло, Боб, Майор Слизь, Профессор + Робо-Цыплёнок, Док Двенадцатиперстной, Псай-Ворон, Королева. +Big Bruty в Special Edition (=11).</td></tr>
+          <tr><td>👾 Именованных злодеев</td><td><span class="big">14+</span></td><td>Боссы + прихвостни (№4, Фифи, котята-охранники) + рядовые враги (вороны, юристы, демоны, пчёлы, личинки и др.).</td></tr>
+          <tr><td>🔫 Оружие</td><td><span class="big">1 + 3</span></td><td>Плазменный бластер (+ Мега-плазма) и 3 приёма тела: голова-хлыст, вертолёт, щит-манта. Большой арсенал — в EWJ2.</td></tr>
+          <tr><td>🚀 Транспорт</td><td><span class="big">3–4</span></td><td>Карманная Ракета, стеклянная субмарина, хомяк-шар (+ вагонетки/трубы).</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <h4>🔗 Источники (факты и скриншоты)</h4>
+    <div class="src">
+      <a href="https://en.wikipedia.org/wiki/Earthworm_Jim_(video_game)" target="_blank" rel="noopener">Wikipedia</a>
+      <a href="https://earthwormjim.fandom.com/wiki/Earthworm_Jim" target="_blank" rel="noopener">Earthworm Jim Wiki</a>
+      <a href="https://games.davenportz.com/nintendo/snes/Earthworm-Jim.php" target="_blank" rel="noopener">Walkthrough + screenshots</a>
+      <a href="https://www.spriters-resource.com/snes/earthworm/" target="_blank" rel="noopener">The Spriters Resource</a>
+      <a href="https://rocketworm.com/earthworm-jim.html" target="_blank" rel="noopener">Rocketworm</a>
+      <a href="https://www.mobygames.com/game/2927/earthworm-jim/" target="_blank" rel="noopener">MobyGames</a>
+      <a href="https://www.hardcoregaming101.net/earthworm-jim/" target="_blank" rel="noopener">Hardcore Gaming 101</a>
+    </div>
+    <div class="disclaimer">
+      <p>🪱 <b>Earthworm Jim</b> © Shiny Entertainment / Interplay / Playmates. Все скриншоты, арты и персонажи принадлежат их правообладателям и приведены здесь исключительно в ознакомительных/фанатских целях.</p>
+      <p>Это фанатский справочник по первой игре (1994). Цифры могут отличаться в зависимости от версии (Genesis, SNES, Sega CD Special Edition, PC, HD-ремейк). Обложка — key art HD-ремейка; Big Bruty показан концепт-артом. Собрано в репозитории <b>newgames</b>.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox">
+  <span class="close" id="lbClose">×</span>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<script>
+  // ----- Lightbox -----
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+  document.querySelectorAll('img.zoom').forEach(img=>{
+    img.parentElement.style.cursor='zoom-in';
+    img.parentElement.addEventListener('click',()=>{
+      lbImg.src=img.src;lbImg.className=img.classList.contains('pixel')?'pixel':'';
+      lbCap.textContent=img.dataset.cap||img.alt||'';lb.classList.add('open');
+    });
+  });
+  function closeLb(){lb.classList.remove('open')}
+  lb.addEventListener('click',closeLb);
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+  // ----- Mission filter -----
+  const chips=document.querySelectorAll('#filters .chip'),cards=document.querySelectorAll('#missionGrid .card');
+  chips.forEach(chip=>chip.addEventListener('click',()=>{
+    chips.forEach(c=>c.classList.remove('active'));chip.classList.add('active');
+    const f=chip.dataset.f;
+    cards.forEach(card=>{card.style.display=(f==='all'||card.dataset.cat===f)?'':'none'});
+  }));
+
+  // ----- Nav active state on scroll -----
+  const navLinks=[...document.querySelectorAll('nav.links a')];
+  const map=new Map(navLinks.map(a=>[a.getAttribute('href').slice(1),a]));
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{if(en.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const a=map.get(en.target.id);if(a)a.classList.add('active');
+    }});
+  },{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

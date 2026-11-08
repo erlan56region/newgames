@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Earthworm Jim 2 — playable prototype (Червяк Джим 2)</title>
+<meta name="description" content="Играбельный браузерный прототип в духе Earthworm Jim 2: плазменный бластер, голова-хлыст, вертолёт, раскачивание на крюках, Снотт и босс Псай-Ворон.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game" width="960" height="540"></canvas>
+
+  <!-- ================= HUD ================= -->
+  <div id="hud" class="hidden">
+    <div class="hud-left">
+      <div class="gauge">
+        <span class="glabel">❤</span>
+        <div class="bar"><i id="healthBar" class="fill health"></i></div>
+      </div>
+      <div class="gauge">
+        <span class="glabel">🔫</span>
+        <div class="bar"><i id="ammoBar" class="fill ammo"></i></div>
+      </div>
+      <div id="chargeWrap" class="charge hidden"><i id="chargeBar"></i></div>
+    </div>
+    <div class="hud-center">
+      <div id="levelName">ANYTHING BUT TANGERINES</div>
+      <div id="levelSub">Уровень 1</div>
+    </div>
+    <div class="hud-right">
+      <div class="counter" title="Червячки (очки)"><span>🪱</span><b id="wormCount">0</b></div>
+      <div class="counter" title="Жизни"><span>🧑🚀</span><b id="lifeCount">3</b></div>
+      <button id="pauseBtn" class="icon-btn" title="Пауза (Esc)">⏸</button>
+      <button id="muteBtn" class="icon-btn" title="Звук">🔊</button>
+    </div>
+  </div>
+
+  <!-- boss bar -->
+  <div id="bossBar" class="hidden">
+    <div class="boss-name" id="bossName">🐦 PSY-CROW</div>
+    <div class="bar boss"><i id="bossFill" class="fill boss"></i></div>
+  </div>
+
+  <!-- toast / pickups -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- ================= TITLE ================= -->
+  <div id="titleScreen" class="screen">
+    <div class="stars"></div>
+    <div class="title-inner">
+      <div class="logo">
+        <span class="l1">EARTHWORM</span>
+        <span class="l2">JIM<b>2</b></span>
+        <span class="tag">PLAYABLE PROTOTYPE · fan-made</span>
+      </div>
+      <p class="lead">Червяк в супер-костюме снова в деле. Плазма, голова-хлыст, вертолёт, крюки и Снотт — фирменные механики перенесены в игру.</p>
+      <div class="menu">
+        <button class="btn primary" data-action="start">▶ ИГРАТЬ</button>
+        <button class="btn" data-action="levels">🗺️ УРОВНИ</button>
+        <button class="btn" data-action="roster">👹 ПЕРСОНАЖИ</button>
+        <button class="btn" data-action="how">🎮 УПРАВЛЕНИЕ</button>
+      </div>
+      <img class="title-hero" src="art/sprites/jim.png" alt="Червяк Джим в супер-костюме">
+      <div class="concept-strip">
+        <img src="concepts/c1.png" alt="concept 1"><img src="concepts/c2.png" alt="concept 2">
+        <img src="concepts/c3.png" alt="concept 3"><img src="concepts/c4.png" alt="concept 4">
+      </div>
+      <p class="tiny">Концепты — из скриншотов оригинала. Историю придумаем позже — сейчас главное механика.</p>
+    </div>
+  </div>
+
+  <!-- ================= LEVEL SELECT ================= -->
+  <div id="levelScreen" class="screen hidden">
+    <div class="panel">
+      <h2>🗺️ Выбор уровня</h2>
+      <div class="level-cards" id="levelCards"></div>
+      <button class="btn ghost" data-action="back-title">← Назад</button>
+    </div>
+  </div>
+
+  <!-- ================= CHARACTER ROSTER ================= -->
+  <div id="rosterScreen" class="screen hidden">
+    <div class="panel wide">
+      <h2>👹 Персонажи и злодеи</h2>
+      <p class="roster-lead">Все эти персонажи нарисованы и участвуют в прохождении: Джим и помощники — в уровнях, злодеи — как боссы с собственными атаками.</p>
+      <div class="roster-grid">
+        <article class="rcard hero"><img src="art/sprites/jim.png" alt="Джим"><h3>Червяк Джим</h3><span class="role">Герой</span><p>Плазма, мега-заряд, голова-хлыст, вертолёт, крюки и Снотт.</p></article>
+        <article class="rcard"><img src="art/sprites/peter.png" alt="Питер Паппи"><h3>Питер Паппи</h3><span class="role ally">Помощник · ур. 1</span><p>Бежит рядом и помогает быстрее восстанавливать патроны.</p></article>
+        <article class="rcard"><img src="art/sprites/snott.png" alt="Снотт"><h3>Снотт</h3><span class="role ally">Помощник · ур. 2</span><p>Прилипает к слизистым стенам, вытаскивает наверх и работает парашютом.</p></article>
+        <article class="rcard villain"><img src="art/sprites/evil-cat.png" alt="Кот Зло"><h3>Evil the Cat</h3><span class="role boss">Босс · ур. 1</span><p>Крадётся, прыгает на Джима и плюётся клубками-снарядами.</p></article>
+        <article class="rcard villain"><img src="art/sprites/major-mucus.png" alt="Майор Слизь"><h3>Major Mucus</h3><span class="role boss">Босс · ур. 2</span><p>Парит над ареной, роняет кислоту и призывает летунов.</p></article>
+        <article class="rcard villain"><img src="art/sprites/psy-crow.png" alt="Псай-Ворон"><h3>Psy-Crow</h3><span class="role boss">Босс · ур. 3</span><p>Пикирует, зависает и ведёт прицельный огонь из бластера.</p></article>
+        <article class="rcard villain"><img src="art/sprites/bob.png" alt="Боб"><h3>Bob the Goldfish</h3><span class="role boss">Босс · ур. 4</span><p>Робо-аквариум шагает по дну и стреляет веером пузырей.</p></article>
+        <article class="rcard villain"><img src="art/sprites/queen.png" alt="Королева"><h3>Queen Slug-for-a-Butt</h3><span class="role boss">Финал · ур. 5</span><p>Кислотные веера, призыв воронов и ударная волна по полу.</p></article>
+      </div>
+      <button class="btn ghost" data-action="back-title">← Назад</button>
+    </div>
+  </div>
+
+  <!-- ================= HOW TO ================= -->
+  <div id="howScreen" class="screen hidden">
+    <div class="panel">
+      <h2>🎮 Управление</h2>
+      <div class="controls-grid">
+        <div><kbd>←</kbd><kbd>→</kbd> / <kbd>A</kbd><kbd>D</kbd><span>Бег</span></div>
+        <div><kbd>Space</kbd> / <kbd>Z</kbd><span>Прыжок</span></div>
+        <div><kbd>Space</kbd> в воздухе (держать)<span>🚁 Вертолёт — медленное падение</span></div>
+        <div><kbd>J</kbd> / <kbd>X</kbd><span>🔫 Бластер (держать — мега-заряд)</span></div>
+        <div><kbd>K</kbd> / <kbd>C</kbd><span>🪢 Голова-хлыст (у крюка — зацеп и раскачка)</span></div>
+        <div><kbd>W</kbd> / <kbd>↑</kbd><span>Вверх: лезть по слизи · целиться вверх</span></div>
+        <div><kbd>↓</kbd> / <kbd>S</kbd><span>🟢 Снотт-парашют; у слизи — прилипнуть</span></div>
+        <div><kbd>Esc</kbd> / <kbd>P</kbd><span>Пауза</span></div>
+      </div>
+      <div class="tips">
+        <p>🪝 Подпрыгни к <b>крюку</b> и нажми хлыст — Джим зацепится и раскачается. Отпусти хлыст или прыгни, чтобы отлететь.</p>
+        <p>🟢 На <b>зелёной слизи</b> держи вниз/в сторону стены — Снотт приклеит Джима; ползи вверх-вниз и отталкивайся прыжком.</p>
+        <p>🔫 Держи бластер для <b>мега-плазмы</b> — пробивает врагов насквозь.</p>
+      </div>
+      <button class="btn ghost" data-action="back-title">← Назад</button>
+    </div>
+  </div>
+
+  <!-- ================= PAUSE ================= -->
+  <div id="pauseScreen" class="screen hidden">
+    <div class="panel small">
+      <h2>⏸ Пауза</h2>
+      <div class="menu">
+        <button class="btn primary" data-action="resume">▶ Продолжить</button>
+        <button class="btn" data-action="restart">↻ Заново</button>
+        <button class="btn ghost" data-action="quit">🏠 В меню</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= WIN ================= -->
+  <div id="winScreen" class="screen hidden">
+    <div class="panel small center">
+      <h2 id="winTitle">✅ Уровень пройден!</h2>
+      <p id="winStats"></p>
+      <div class="menu">
+        <button class="btn primary" data-action="next">Следующий уровень →</button>
+        <button class="btn ghost" data-action="quit">🏠 В меню</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= GAME OVER ================= -->
+  <div id="overScreen" class="screen hidden">
+    <div class="panel small center">
+      <h2>💀 Игра окончена</h2>
+      <p id="overStats"></p>
+      <div class="menu">
+        <button class="btn primary" data-action="restart">↻ Ещё раз</button>
+        <button class="btn ghost" data-action="quit">🏠 В меню</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOUCH CONTROLS ================= -->
+  <div id="touch" class="hidden">
+    <div class="touch-left">
+      <button class="tbtn" data-key="left">◀</button>
+      <button class="tbtn" data-key="right">▶</button>
+      <button class="tbtn" data-key="down">▼</button>
+    </div>
+    <div class="touch-right">
+      <button class="tbtn whip" data-key="whip">🪢</button>
+      <button class="tbtn shoot" data-key="shoot">🔫</button>
+      <button class="tbtn jump" data-key="jump">⤴</button>
+    </div>
+  </div>
+</div>
+
+<script src="levels.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

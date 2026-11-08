@@ -1,0 +1,49 @@
+{
+  "jim": {
+    "file": "art/sprites/jim.png",
+    "w": 445,
+    "h": 512
+  },
+  "psy-crow": {
+    "file": "art/sprites/psy-crow.png",
+    "w": 351,
+    "h": 512
+  },
+  "evil-cat": {
+    "file": "art/sprites/evil-cat.png",
+    "w": 364,
+    "h": 512
+  },
+  "bob": {
+    "file": "art/sprites/bob.png",
+    "w": 321,
+    "h": 512
+  },
+  "major-mucus": {
+    "file": "art/sprites/major-mucus.png",
+    "w": 585,
+    "h": 512
+  },
+  "queen": {
+    "file": "art/sprites/queen.png",
+    "w": 482,
+    "h": 512
+  },
+  "peter": {
+    "file": "art/sprites/peter.png",
+    "w": 366,
+    "h": 508
+  },
+  "snott": {
+    "file": "art/sprites/snott.png",
+    "w": 490,
+    "h": 512
+  },
+  "jim_run": [
+    "art/sprites/jim-run-0.png",
+    "art/sprites/jim-run-1.png",
+    "art/sprites/jim-run-2.png",
+    "art/sprites/jim-run-3.png"
+  ],
+  "bg_junk": "art/bg-junk.jpg"
+}
